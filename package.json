@@ -1,25 +1,25 @@
 {
-  "name": "component-ssh-proxy-install",
+  "name": "comopnent-proxy-install",
   "description": "Proxy installs from ssh component",
   "version": "0.0.4",
   "dependencies": {
     "component": "*",
+    "express": "*",
     "mime": "*",
     "mkdirp": "*",
-    "express": "*"
+    "rimraf": "*"
   },
   "devDependencies": {
     "jshint": "*"
   },
   "keywords": [
     "component",
-    "ssh",
     "install"
   ],
   "author": "Reuven V. Gonzales <reuven@virtru.com>",
   "preferGlobal": true,
   "bin": {
-    "component-ssh-proxy-install": "./bin/component-ssh-proxy-install"
+    "component-proxy-install": "./bin/component-proxy-install"
   },
   "engines": {
     "node": ">= 0.8.22"

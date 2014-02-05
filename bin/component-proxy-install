@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+var app = require('../lib/app');
+var spawn = require('child_process').spawn;
+
+// Run the server
+console.log('Starting component proxy');
+app.start();
+
+var port = app.getPort();
+
+var installArgs = [ 'install', '-r', 'https://raw.github.com,http://127.0.0.1:' + port ];
+installArgs = installArgs.concat(process.argv.slice(2));
+
+// Run the install process
+var installProc = spawn('./node_modules/.bin/component', installArgs);
+
+installProc.stdout.on('data', function(data) {
+  process.stdout.write('' + data);
+});
+
+installProc.stderr.on('data', function(data) {
+  process.stderr.write('' + data);
+});
+
+installProc.on('close', function(code) {
+  console.log('Stopping component proxy');
+  app.stop(function () {
+  	process.exit(code);
+  });
+});
