@@ -1,12 +1,15 @@
 {
   "name": "component-ssh-proxy-install",
   "description": "Proxy installs from ssh component",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "dependencies": {
     "component": "*",
     "mime": "*",
     "mkdirp": "*",
     "express": "*"
+  },
+  "devDependencies": {
+    "jshint": "*"
   },
   "keywords": [
     "component",
